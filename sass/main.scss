@@ -1,0 +1,34 @@
+@import "components/normalize";
+@import "components/animations";
+@import "components/common";
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__logo {
+        margin-left: 2rem;
+        font-weight: bold;
+    }
+}
+
+.nav {
+    margin: 0 2rem;
+
+    &__list {
+        list-style: none;
+        display: flex;
+        height: 100%;
+    }
+
+    &__item {
+        margin: 0 0.5em;
+        height: 100%;
+    }
+
+    &__link {
+        height: 100%;
+        padding: 0.5em 1em;
+    }
+}

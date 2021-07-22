@@ -1,0 +1,265 @@
+$ff: "Roboto",
+sans-serif;
+$main-color: #00539f;
+$second-color: #68D2DF;
+$text-color: #000;
+
+
+$selection-color: rgba(104, 209, 223, 0.5);
+
+//breakpoints
+$xxl: 1400px;
+$xl: 1320px;
+$lg: 1024px;
+$md: 991px;
+$sm: 760px;
+// $xs: 460px;
+
+$pl-xl: 15px;
+$pr-xl: 20px;
+
+
+@font-face {
+   font-family: "Roboto";
+   src: url("../fonts/Roboto/Roboto.woff2") format("woff2"),
+      url("../fonts/Roboto/Roboto.woff") format("woff");
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: "Roboto";
+   src: url("../fonts/Roboto/Robotobold.woff2") format("woff2"),
+      url("../fonts/Roboto/Robotobold.woff") format("woff");
+   font-weight: 700;
+   font-style: normal;
+}
+
+html {
+   font-family: $ff;
+   font-size: 1.25vw; //  24px on 1920px vw
+   font-weight: normal;
+
+}
+
+body {
+   font-family: $ff;
+   font-size: 1.25vw; //  24px on 1920px vw
+   line-height: 1.5;
+   font-weight: normal;
+}
+
+p {
+   font-size: 1rem;
+   margin: 1.5em 0;
+}
+
+.text {
+   font-size: 1rem;
+
+   &_normal {
+      text-transform: none;
+   }
+
+   &_right {
+      text-align: right;
+   }
+}
+
+strong,
+.strong {
+   font-weight: 700;
+}
+
+button:focus,
+a:focus {
+   outline: none;
+}
+
+.nowrap {
+   white-space: nowrap;
+}
+
+h1 {
+   font-weight: unset;
+   font-size: inherit;
+   margin: unset;
+   display: unset;
+}
+
+.h1 {
+   font-weight: 700;
+   font-size: 3.49em; // 67px in maket
+   text-transform: uppercase;
+   display: block;
+}
+
+.h2 {
+   font-size: 2.08em; // 40px in maket
+   font-weight: 700;
+   line-height: 1.2;
+   text-transform: uppercase;
+   margin: 0;
+   display: inline-block;
+}
+
+.link {
+   transition: opacity 0.3s ease;
+
+   @media (hover) {
+      &:hover {
+         opacity: 0.5;
+      }
+   }
+}
+
+
+.color {
+   color: $main-color;
+}
+
+.my-0 {
+   margin-top: 0;
+   margin-bottom: 0;
+}
+
+.mb-0 {
+   margin-bottom: 0;
+}
+
+.mt-0 {
+   margin-top: 0;
+}
+
+.mt-1 {
+   margin-top: 1em;
+}
+
+.mb-1 {
+   margin-bottom: 1em;
+}
+
+.container {
+   width: 100%;
+   padding-left: $pl-xl;
+   padding-right: $pr-xl;
+}
+
+.row {
+   display: flex;
+
+   @media (max-width: $sm) {
+      flex-wrap: wrap;
+   }
+}
+
+.section {
+   padding-top: 6.5vw;
+}
+
+
+.svg {
+   width: inherit;
+   height: inherit;
+   max-height: inherit;
+   fill: inherit;
+   color: inherit;
+   display: block;
+}
+
+.hover {
+   transition: opacity 0.2s linear;
+   opacity: 1;
+
+   @media (hover) {
+      &:hover {
+         opacity: 0.5;
+      }
+   }
+}
+
+
+/*<<<< ---- scroll -----*/
+
+
+*::-webkit-scrollbar {
+   width: 7px;
+   height: 7px;
+   position: absolute;
+}
+
+*::-webkit-scrollbar-track {
+   background-color: #efefef;
+   -webkit-box-shadow: inset 0 0 6px rgba(239, 239, 239, 1);
+   box-shadow: inset 0 0 6px #efefef;
+   border-radius: 4px;
+   overflow: hidden;
+}
+
+*::-webkit-scrollbar-thumb {
+   background-color: #333;
+   outline: 1px solid #333;
+   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+
+   &:hover {
+      width: 200%;
+   }
+}
+
+/*---- scroll---- >>>>*/
+
+
+/*<<<< ---- selection -----*/
+
+:root {
+   scrollbar-color: #333 #efefef !important;
+   scrollbar-width: thin !important;
+}
+
+::-moz-selection {
+   /* Code for Firefox */
+   background-color: $selection-color;
+}
+
+::selection {
+   background-color: $selection-color;
+}
+
+* {
+   -webkit-tap-highlight-color: $selection-color;
+}
+
+.noscroll {
+   overflow: hidden;
+}
+
+/*---- selection---- >>>>*/
+
+#cookieNotice {
+   width: 27rem;
+   font-size: .7rem !important;
+   font-family: $ff !important;
+   line-height: 1.5 !important;
+   text-align: left !important;
+   padding: 1rem !important;
+   border-radius: 0.5rem;
+   bottom: 1rem !important;
+   left: 1rem !important;
+   // left: unset !important;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+
+   & .confirm {
+      margin-top: 1rem !important;
+      border-radius: 1.5em;
+      font-size: 0.7rem;
+      font-weight: 700 !important;
+      text-align: center;
+      line-height: 1.5;
+      font-weight: 700;
+      padding: 0.35em 1.75em 0.3em !important;
+
+   }
+}
