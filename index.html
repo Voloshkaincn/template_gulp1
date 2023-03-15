@@ -53,7 +53,11 @@
     <div id="page">
 
         <header id='header' class="header">
-            <div class="logo header__logo">LOGO</div>
+            <div class="logo header__logo">
+                <svg class="svg">
+                    <use xlink:href="#logo"></use>
+                </svg>
+            </div>
             <nav class="nav" id="nav">
                 <ul class="nav__list">
                     <li class="nav__item">
@@ -81,6 +85,16 @@
         </main>
 
     </div>
+
+     <!-- svg -->
+
+     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width: 0; height: 0; position: absolute; z-index: -9; opacity: 0">
+        
+        <symbol id="logo" viewBox="0 0 100 100" fill="currentColor">
+            <circle cx="50" cy="50" r="50" />
+        </symbol>	
+        
+    </svg>
 
     <script src="js/libs.min.js"></script>
     <script src="js/main.js"></script>
