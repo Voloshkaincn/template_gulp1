@@ -2,7 +2,6 @@ var gulp = require('gulp'),
    sassToCss = require('gulp-sass'),
    concat = require("gulp-concat"),
    uglify = require('gulp-uglify-es').default,
-   cleanCSS = require('gulp-clean-css'),
    autoprefixer = require("gulp-autoprefixer"),
    rename = require("gulp-rename"),
    browserSync = require('browser-sync').create(),
@@ -11,36 +10,46 @@ var gulp = require('gulp'),
    include = require('gulp-include');
 
 //Compile CSS file from Sass
-gulp.task('compileSass', function() {
+gulp.task('compileSass', function () {
    return gulp.src(['sass/**/*.{sass,scss}'])
       .pipe(sourcemaps.init())
-      .pipe(sassToCss({ outputStyle: 'expanded' }).on('error', sassToCss.logError))
-      .pipe(autoprefixer({ cascade: false }))
+      .pipe(sassToCss({
+         outputStyle: 'expanded'
+      }).on('error', sassToCss.logError))
       .pipe(gulp.dest('css'))
-      .pipe(cleanCSS())
       .pipe(cssnano())
-      .pipe(rename({ suffix: '.min' }))
-      .on('error', function(err) {
+      .pipe(autoprefixer({
+         overrideBrowserslist: ['last 78 versions'],
+         cascade: false
+      }))
+      .pipe(rename({
+         suffix: '.min'
+      }))
+      .on('error', function (err) {
          console.error('Error!', err.message);
       })
       .pipe(sourcemaps.write())
       .pipe(gulp.dest('css'))
-      .pipe(browserSync.stream({ match: '**/*.css' }));
+      .pipe(browserSync.stream({
+         match: '**/*.css'
+      }));
 });
 
 //Concat all library js files into libs.min.js
-gulp.task('createJsLibs', function() {
+gulp.task('createJsLibs', function () {
    return gulp.src([
          './libs/ScrollMagic.min.js'
       ])
       .pipe(concat('libs.min.js'))
       .pipe(uglify())
       .pipe(gulp.dest('./js'))
-      .pipe(browserSync.stream({ match: '**/*.js' }));
+      .pipe(browserSync.stream({
+         match: '**/*.js'
+      }));
 });
 
 //Compress JSFiles
-gulp.task('compressJs', function() {
+gulp.task('compressJs', function () {
    return gulp.src([
          'js/main.js'
       ])
@@ -51,17 +60,21 @@ gulp.task('compressJs', function() {
          suffix: ".min"
       }))
       .pipe(gulp.dest('js'))
-      .pipe(browserSync.stream({ match: '**/*.js' }));
+      .pipe(browserSync.stream({
+         match: '**/*.js'
+      }));
 });
 
-gulp.task('code', function() {
+gulp.task('code', function () {
    return gulp.src([
          '**/*.{php, html}'
       ])
-      .pipe(browserSync.reload({ stream: true }));
+      .pipe(browserSync.reload({
+         stream: true
+      }));
 });
 
-gulp.task('browserSync', function() {
+gulp.task('browserSync', function () {
    browserSync.init({
       watch: true,
       server: "./",
