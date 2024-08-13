@@ -38,6 +38,7 @@ gulp.task('compileSass', function () {
 //Concat all library js files into libs.min.js
 gulp.task('createJsLibs', function () {
    return gulp.src([
+         './libs/smooth_scroll.js',
          './libs/ScrollMagic.min.js'
       ])
       .pipe(concat('libs.min.js'))
